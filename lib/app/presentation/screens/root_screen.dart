@@ -28,17 +28,6 @@ class _RootScreenState extends State<RootScreen> {
               activeColor: activeColor,
               currentIndex: tabsRouter.activeIndex,
               onTap: (index) {
-                // if (index == tabsRouter.activeIndex) {
-                //   if (appRouter.tabRouter.canPop()) {
-                //     appRouter.tabRouter.maybePopTop();
-                //   } else {
-                //     for (final item in tabRootScreens) {
-                //       if (item.tab.index == index) {
-                //         item.onTabTappedInRoot();
-                //       }
-                //     }
-                //   }
-                // }
                 tabsRouter.setActiveIndex(index);
               },
               height: 63,
