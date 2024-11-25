@@ -39,8 +39,8 @@
 ## 📱 Снимки экрана и демонстрация
 
 ### Управление транзакциями
-![Управление транзакциями](screenshots/manage_transactions.gif)
+![Добавление транзакции](<a href="https://ibb.co/84tBkcZ"><img src="https://i.ibb.co/84tBkcZ/add-transactions.gif" alt="add-transactions" border="0"></a>)
 
 ### Диаграмма доходов и расходов
-![Диаграмма статистики](screenshots/statistics_chart.gif)
+![Удаление транзакций](<a href="https://ibb.co/gwpPFhk"><img src="https://i.ibb.co/gwpPFhk/remove-transaction.gif" alt="remove-transaction" border="0"></a>)
 
