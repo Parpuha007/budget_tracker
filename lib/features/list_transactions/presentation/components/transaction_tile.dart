@@ -1,4 +1,4 @@
-import 'package:budget_tracker/features/transaction/transaction.dart';
+import 'package:budget_tracker/features/list_transactions/list_transactions.dart';
 import 'package:flutter/material.dart';
 
 class TransactionTile extends StatelessWidget {

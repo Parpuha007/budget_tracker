@@ -1,4 +1,4 @@
-import 'package:budget_tracker/features/transaction/transaction.dart';
+import 'package:budget_tracker/features/list_transactions/list_transactions.dart';
 
 class TransactionsGroup {
   final DateTime date;
