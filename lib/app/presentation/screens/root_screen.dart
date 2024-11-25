@@ -31,32 +31,15 @@ class _RootScreenState extends State<RootScreen> {
                 tabsRouter.setActiveIndex(index);
               },
               height: 63,
-              items: [
-                _customBottomNavigationBarItem(
-                  activeIcon: const Icon(Icons.abc_outlined),
-                  icon: const Icon(Icons.abc),
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
                   label: 'Главная',
                 ),
-                _customBottomNavigationBarItem(
-                  activeIcon: const Icon(Icons.ac_unit),
-                  icon: const Icon(Icons.ac_unit_outlined),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.equalizer),
                   label: 'Статистика',
-                ),
-                // _customBottomNavigationBarItem(
-                //   activeIcon: Assets.svg.supportTab.svg(),
-                //   icon: Assets.svg.supportTabInactive.svg(),
-                //   label: trStr(LocaleKeys.supportTab),
-                // ),
-                // _customBottomNavigationBarItem(
-                //   activeIcon: Assets.svg.profileTab.svg(),
-                //   icon: Assets.svg.profileTabInactive.svg(),
-                //   label: trStr(LocaleKeys.profile),
-                // ),
-                // _customBottomNavigationBarItem(
-                //   activeIcon: Assets.svg.additionalTab.svg(),
-                //   icon: Assets.svg.additionalTabInactive.svg(),
-                //   label: trStr(LocaleKeys.moreTab),
-                // ),
+                )
               ],
             );
           },
@@ -64,53 +47,4 @@ class _RootScreenState extends State<RootScreen> {
       ],
     );
   }
-
-  //TODO: выпилить build-методы
-  BottomNavigationBarItem _customBottomNavigationBarItem({
-    required Widget? activeIcon,
-    required Widget icon,
-    required String? label,
-  }) {
-    return BottomNavigationBarItem(
-      activeIcon: _padding(
-        child: activeIcon,
-      ),
-      icon: _padding(
-        child: icon,
-      ),
-      label: label,
-    );
-  }
-
-  Widget _padding({
-    required Widget? child,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 7),
-      child: child,
-    );
-  }
 }
-
-// final tabRootScreens = <RootTabScreenMixin>[];
-// mixin RootTabScreenMixin<T extends StatefulWidget> on State<T> {
-//   RouterTab get tab;
-
-//   void onTabTappedInRoot();
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     register();
-//   }
-
-//   @override
-//   void dispose() {
-//     tabRootScreens.remove(this);
-//     super.dispose();
-//   }
-
-//   void register() {
-//     tabRootScreens.add(this);
-//   }
-// }

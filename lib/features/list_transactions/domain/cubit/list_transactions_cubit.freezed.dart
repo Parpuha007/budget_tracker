@@ -21,8 +21,9 @@ mixin _$ListTransactionsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<TransactionsGroup> groupedTransactionsList)
-        loaded,
+    required TResult Function(
+            List<TransactionsGroupByDate> groupedTransactionsList)
+        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,7 +31,8 @@ mixin _$ListTransactionsState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult? Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,32 +40,33 @@ mixin _$ListTransactionsState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loaded value) loaded,
+    required TResult Function(ListTransactionsLoading value) loading,
+    required TResult Function(ListTransactionsEmpty value) empty,
+    required TResult Function(ListTransactionsSuccess value) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loaded value)? loaded,
+    TResult? Function(ListTransactionsLoading value)? loading,
+    TResult? Function(ListTransactionsEmpty value)? empty,
+    TResult? Function(ListTransactionsSuccess value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loaded value)? loaded,
+    TResult Function(ListTransactionsLoading value)? loading,
+    TResult Function(ListTransactionsEmpty value)? empty,
+    TResult Function(ListTransactionsSuccess value)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,8 +138,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<TransactionsGroup> groupedTransactionsList)
-        loaded,
+    required TResult Function(
+            List<TransactionsGroupByDate> groupedTransactionsList)
+        success,
   }) {
     return initial();
   }
@@ -147,7 +151,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult? Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
   }) {
     return initial?.call();
   }
@@ -158,7 +163,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,9 +177,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loaded value) loaded,
+    required TResult Function(ListTransactionsLoading value) loading,
+    required TResult Function(ListTransactionsEmpty value) empty,
+    required TResult Function(ListTransactionsSuccess value) success,
   }) {
     return initial(this);
   }
@@ -182,9 +188,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loaded value)? loaded,
+    TResult? Function(ListTransactionsLoading value)? loading,
+    TResult? Function(ListTransactionsEmpty value)? empty,
+    TResult? Function(ListTransactionsSuccess value)? success,
   }) {
     return initial?.call(this);
   }
@@ -193,9 +199,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loaded value)? loaded,
+    TResult Function(ListTransactionsLoading value)? loading,
+    TResult Function(ListTransactionsEmpty value)? empty,
+    TResult Function(ListTransactionsSuccess value)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -210,18 +216,21 @@ abstract class _Initial implements ListTransactionsState {
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+abstract class _$$ListTransactionsLoadingImplCopyWith<$Res> {
+  factory _$$ListTransactionsLoadingImplCopyWith(
+          _$ListTransactionsLoadingImpl value,
+          $Res Function(_$ListTransactionsLoadingImpl) then) =
+      __$$ListTransactionsLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$ListTransactionsStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+class __$$ListTransactionsLoadingImplCopyWithImpl<$Res>
+    extends _$ListTransactionsStateCopyWithImpl<$Res,
+        _$ListTransactionsLoadingImpl>
+    implements _$$ListTransactionsLoadingImplCopyWith<$Res> {
+  __$$ListTransactionsLoadingImplCopyWithImpl(
+      _$ListTransactionsLoadingImpl _value,
+      $Res Function(_$ListTransactionsLoadingImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ListTransactionsState
@@ -230,8 +239,8 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl implements Loading {
-  const _$LoadingImpl();
+class _$ListTransactionsLoadingImpl implements ListTransactionsLoading {
+  const _$ListTransactionsLoadingImpl();
 
   @override
   String toString() {
@@ -241,7 +250,8 @@ class _$LoadingImpl implements Loading {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ListTransactionsLoadingImpl);
   }
 
   @override
@@ -253,8 +263,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<TransactionsGroup> groupedTransactionsList)
-        loaded,
+    required TResult Function(
+            List<TransactionsGroupByDate> groupedTransactionsList)
+        success,
   }) {
     return loading();
   }
@@ -265,7 +276,8 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult? Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
   }) {
     return loading?.call();
   }
@@ -276,7 +288,8 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -289,9 +302,9 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loaded value) loaded,
+    required TResult Function(ListTransactionsLoading value) loading,
+    required TResult Function(ListTransactionsEmpty value) empty,
+    required TResult Function(ListTransactionsSuccess value) success,
   }) {
     return loading(this);
   }
@@ -300,9 +313,9 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loaded value)? loaded,
+    TResult? Function(ListTransactionsLoading value)? loading,
+    TResult? Function(ListTransactionsEmpty value)? empty,
+    TResult? Function(ListTransactionsSuccess value)? success,
   }) {
     return loading?.call(this);
   }
@@ -311,9 +324,9 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loaded value)? loaded,
+    TResult Function(ListTransactionsLoading value)? loading,
+    TResult Function(ListTransactionsEmpty value)? empty,
+    TResult Function(ListTransactionsSuccess value)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -323,23 +336,25 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements ListTransactionsState {
-  const factory Loading() = _$LoadingImpl;
+abstract class ListTransactionsLoading implements ListTransactionsState {
+  const factory ListTransactionsLoading() = _$ListTransactionsLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$EmptyImplCopyWith<$Res> {
-  factory _$$EmptyImplCopyWith(
-          _$EmptyImpl value, $Res Function(_$EmptyImpl) then) =
-      __$$EmptyImplCopyWithImpl<$Res>;
+abstract class _$$ListTransactionsEmptyImplCopyWith<$Res> {
+  factory _$$ListTransactionsEmptyImplCopyWith(
+          _$ListTransactionsEmptyImpl value,
+          $Res Function(_$ListTransactionsEmptyImpl) then) =
+      __$$ListTransactionsEmptyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmptyImplCopyWithImpl<$Res>
-    extends _$ListTransactionsStateCopyWithImpl<$Res, _$EmptyImpl>
-    implements _$$EmptyImplCopyWith<$Res> {
-  __$$EmptyImplCopyWithImpl(
-      _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
+class __$$ListTransactionsEmptyImplCopyWithImpl<$Res>
+    extends _$ListTransactionsStateCopyWithImpl<$Res,
+        _$ListTransactionsEmptyImpl>
+    implements _$$ListTransactionsEmptyImplCopyWith<$Res> {
+  __$$ListTransactionsEmptyImplCopyWithImpl(_$ListTransactionsEmptyImpl _value,
+      $Res Function(_$ListTransactionsEmptyImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ListTransactionsState
@@ -348,8 +363,8 @@ class __$$EmptyImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EmptyImpl implements Empty {
-  const _$EmptyImpl();
+class _$ListTransactionsEmptyImpl implements ListTransactionsEmpty {
+  const _$ListTransactionsEmptyImpl();
 
   @override
   String toString() {
@@ -359,7 +374,8 @@ class _$EmptyImpl implements Empty {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmptyImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ListTransactionsEmptyImpl);
   }
 
   @override
@@ -371,8 +387,9 @@ class _$EmptyImpl implements Empty {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<TransactionsGroup> groupedTransactionsList)
-        loaded,
+    required TResult Function(
+            List<TransactionsGroupByDate> groupedTransactionsList)
+        success,
   }) {
     return empty();
   }
@@ -383,7 +400,8 @@ class _$EmptyImpl implements Empty {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult? Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
   }) {
     return empty?.call();
   }
@@ -394,7 +412,8 @@ class _$EmptyImpl implements Empty {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -407,9 +426,9 @@ class _$EmptyImpl implements Empty {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loaded value) loaded,
+    required TResult Function(ListTransactionsLoading value) loading,
+    required TResult Function(ListTransactionsEmpty value) empty,
+    required TResult Function(ListTransactionsSuccess value) success,
   }) {
     return empty(this);
   }
@@ -418,9 +437,9 @@ class _$EmptyImpl implements Empty {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loaded value)? loaded,
+    TResult? Function(ListTransactionsLoading value)? loading,
+    TResult? Function(ListTransactionsEmpty value)? empty,
+    TResult? Function(ListTransactionsSuccess value)? success,
   }) {
     return empty?.call(this);
   }
@@ -429,9 +448,9 @@ class _$EmptyImpl implements Empty {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loaded value)? loaded,
+    TResult Function(ListTransactionsLoading value)? loading,
+    TResult Function(ListTransactionsEmpty value)? empty,
+    TResult Function(ListTransactionsSuccess value)? success,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -441,25 +460,28 @@ class _$EmptyImpl implements Empty {
   }
 }
 
-abstract class Empty implements ListTransactionsState {
-  const factory Empty() = _$EmptyImpl;
+abstract class ListTransactionsEmpty implements ListTransactionsState {
+  const factory ListTransactionsEmpty() = _$ListTransactionsEmptyImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
+abstract class _$$ListTransactionsSuccessImplCopyWith<$Res> {
+  factory _$$ListTransactionsSuccessImplCopyWith(
+          _$ListTransactionsSuccessImpl value,
+          $Res Function(_$ListTransactionsSuccessImpl) then) =
+      __$$ListTransactionsSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<TransactionsGroup> groupedTransactionsList});
+  $Res call({List<TransactionsGroupByDate> groupedTransactionsList});
 }
 
 /// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$ListTransactionsStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+class __$$ListTransactionsSuccessImplCopyWithImpl<$Res>
+    extends _$ListTransactionsStateCopyWithImpl<$Res,
+        _$ListTransactionsSuccessImpl>
+    implements _$$ListTransactionsSuccessImplCopyWith<$Res> {
+  __$$ListTransactionsSuccessImplCopyWithImpl(
+      _$ListTransactionsSuccessImpl _value,
+      $Res Function(_$ListTransactionsSuccessImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ListTransactionsState
@@ -469,24 +491,25 @@ class __$$LoadedImplCopyWithImpl<$Res>
   $Res call({
     Object? groupedTransactionsList = null,
   }) {
-    return _then(_$LoadedImpl(
+    return _then(_$ListTransactionsSuccessImpl(
       null == groupedTransactionsList
           ? _value._groupedTransactionsList
           : groupedTransactionsList // ignore: cast_nullable_to_non_nullable
-              as List<TransactionsGroup>,
+              as List<TransactionsGroupByDate>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LoadedImpl implements Loaded {
-  const _$LoadedImpl(final List<TransactionsGroup> groupedTransactionsList)
+class _$ListTransactionsSuccessImpl implements ListTransactionsSuccess {
+  const _$ListTransactionsSuccessImpl(
+      final List<TransactionsGroupByDate> groupedTransactionsList)
       : _groupedTransactionsList = groupedTransactionsList;
 
-  final List<TransactionsGroup> _groupedTransactionsList;
+  final List<TransactionsGroupByDate> _groupedTransactionsList;
   @override
-  List<TransactionsGroup> get groupedTransactionsList {
+  List<TransactionsGroupByDate> get groupedTransactionsList {
     if (_groupedTransactionsList is EqualUnmodifiableListView)
       return _groupedTransactionsList;
     // ignore: implicit_dynamic_type
@@ -495,14 +518,14 @@ class _$LoadedImpl implements Loaded {
 
   @override
   String toString() {
-    return 'ListTransactionsState.loaded(groupedTransactionsList: $groupedTransactionsList)';
+    return 'ListTransactionsState.success(groupedTransactionsList: $groupedTransactionsList)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadedImpl &&
+            other is _$ListTransactionsSuccessImpl &&
             const DeepCollectionEquality().equals(
                 other._groupedTransactionsList, _groupedTransactionsList));
   }
@@ -516,8 +539,9 @@ class _$LoadedImpl implements Loaded {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
+  _$$ListTransactionsSuccessImplCopyWith<_$ListTransactionsSuccessImpl>
+      get copyWith => __$$ListTransactionsSuccessImplCopyWithImpl<
+          _$ListTransactionsSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -525,10 +549,11 @@ class _$LoadedImpl implements Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
-    required TResult Function(List<TransactionsGroup> groupedTransactionsList)
-        loaded,
+    required TResult Function(
+            List<TransactionsGroupByDate> groupedTransactionsList)
+        success,
   }) {
-    return loaded(groupedTransactionsList);
+    return success(groupedTransactionsList);
   }
 
   @override
@@ -537,9 +562,10 @@ class _$LoadedImpl implements Loaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? empty,
-    TResult? Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult? Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
   }) {
-    return loaded?.call(groupedTransactionsList);
+    return success?.call(groupedTransactionsList);
   }
 
   @override
@@ -548,11 +574,12 @@ class _$LoadedImpl implements Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? empty,
-    TResult Function(List<TransactionsGroup> groupedTransactionsList)? loaded,
+    TResult Function(List<TransactionsGroupByDate> groupedTransactionsList)?
+        success,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(groupedTransactionsList);
+    if (success != null) {
+      return success(groupedTransactionsList);
     }
     return orElse();
   }
@@ -561,49 +588,50 @@ class _$LoadedImpl implements Loaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loaded value) loaded,
+    required TResult Function(ListTransactionsLoading value) loading,
+    required TResult Function(ListTransactionsEmpty value) empty,
+    required TResult Function(ListTransactionsSuccess value) success,
   }) {
-    return loaded(this);
+    return success(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loaded value)? loaded,
+    TResult? Function(ListTransactionsLoading value)? loading,
+    TResult? Function(ListTransactionsEmpty value)? empty,
+    TResult? Function(ListTransactionsSuccess value)? success,
   }) {
-    return loaded?.call(this);
+    return success?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loaded value)? loaded,
+    TResult Function(ListTransactionsLoading value)? loading,
+    TResult Function(ListTransactionsEmpty value)? empty,
+    TResult Function(ListTransactionsSuccess value)? success,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (success != null) {
+      return success(this);
     }
     return orElse();
   }
 }
 
-abstract class Loaded implements ListTransactionsState {
-  const factory Loaded(final List<TransactionsGroup> groupedTransactionsList) =
-      _$LoadedImpl;
+abstract class ListTransactionsSuccess implements ListTransactionsState {
+  const factory ListTransactionsSuccess(
+          final List<TransactionsGroupByDate> groupedTransactionsList) =
+      _$ListTransactionsSuccessImpl;
 
-  List<TransactionsGroup> get groupedTransactionsList;
+  List<TransactionsGroupByDate> get groupedTransactionsList;
 
   /// Create a copy of ListTransactionsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ListTransactionsSuccessImplCopyWith<_$ListTransactionsSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -20,10 +20,15 @@ Transaction _$TransactionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Transaction {
-  int? get id => throw _privateConstructorUsedError;
+  @HiveField(0)
+  int get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   TransactionType get type => throw _privateConstructorUsedError;
+  @HiveField(2)
   double get amount => throw _privateConstructorUsedError;
+  @HiveField(3)
   TransactionCategory get category => throw _privateConstructorUsedError;
+  @HiveField(4)
   DateTime get date => throw _privateConstructorUsedError;
 
   /// Serializes this Transaction to a JSON map.
@@ -43,11 +48,11 @@ abstract class $TransactionCopyWith<$Res> {
       _$TransactionCopyWithImpl<$Res, Transaction>;
   @useResult
   $Res call(
-      {int? id,
-      TransactionType type,
-      double amount,
-      TransactionCategory category,
-      DateTime date});
+      {@HiveField(0) int id,
+      @HiveField(1) TransactionType type,
+      @HiveField(2) double amount,
+      @HiveField(3) TransactionCategory category,
+      @HiveField(4) DateTime date});
 }
 
 /// @nodoc
@@ -65,17 +70,17 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? type = null,
     Object? amount = null,
     Object? category = null,
     Object? date = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -105,11 +110,11 @@ abstract class _$$TransactionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? id,
-      TransactionType type,
-      double amount,
-      TransactionCategory category,
-      DateTime date});
+      {@HiveField(0) int id,
+      @HiveField(1) TransactionType type,
+      @HiveField(2) double amount,
+      @HiveField(3) TransactionCategory category,
+      @HiveField(4) DateTime date});
 }
 
 /// @nodoc
@@ -125,17 +130,17 @@ class __$$TransactionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? type = null,
     Object? amount = null,
     Object? category = null,
     Object? date = null,
   }) {
     return _then(_$TransactionImpl(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -160,24 +165,29 @@ class __$$TransactionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TransactionImpl implements _Transaction {
   const _$TransactionImpl(
-      {this.id,
-      required this.type,
-      required this.amount,
-      required this.category,
-      required this.date});
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.type,
+      @HiveField(2) required this.amount,
+      @HiveField(3) required this.category,
+      @HiveField(4) required this.date});
 
   factory _$TransactionImpl.fromJson(Map<String, dynamic> json) =>
       _$$TransactionImplFromJson(json);
 
   @override
-  final int? id;
+  @HiveField(0)
+  final int id;
   @override
+  @HiveField(1)
   final TransactionType type;
   @override
+  @HiveField(2)
   final double amount;
   @override
+  @HiveField(3)
   final TransactionCategory category;
   @override
+  @HiveField(4)
   final DateTime date;
 
   @override
@@ -221,24 +231,29 @@ class _$TransactionImpl implements _Transaction {
 
 abstract class _Transaction implements Transaction {
   const factory _Transaction(
-      {final int? id,
-      required final TransactionType type,
-      required final double amount,
-      required final TransactionCategory category,
-      required final DateTime date}) = _$TransactionImpl;
+      {@HiveField(0) required final int id,
+      @HiveField(1) required final TransactionType type,
+      @HiveField(2) required final double amount,
+      @HiveField(3) required final TransactionCategory category,
+      @HiveField(4) required final DateTime date}) = _$TransactionImpl;
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
       _$TransactionImpl.fromJson;
 
   @override
-  int? get id;
+  @HiveField(0)
+  int get id;
   @override
+  @HiveField(1)
   TransactionType get type;
   @override
+  @HiveField(2)
   double get amount;
   @override
+  @HiveField(3)
   TransactionCategory get category;
   @override
+  @HiveField(4)
   DateTime get date;
 
   /// Create a copy of Transaction

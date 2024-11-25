@@ -7,5 +7,6 @@ import 'package:injectable/injectable.dart';
 void main() async {
   final builder = MainAppBuilder(appRouter);
   await configureDependencies(Environment.prod);
+
   runApp(builder.buildApp());
 }

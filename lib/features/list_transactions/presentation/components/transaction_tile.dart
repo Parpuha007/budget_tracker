@@ -24,17 +24,17 @@ class TransactionTile extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: _getCategoryColor(transaction.category),
+                  color: transaction.category.color,
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(Icons.category, color: Colors.white),
+                child: Icon(transaction.category.icon, color: Colors.white),
               ),
               const SizedBox(width: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    transaction.category.name,
+                    transaction.category.title,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -43,9 +43,7 @@ class TransactionTile extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    transaction.type == TransactionType.expense
-                        ? 'Расход'
-                        : 'Доход',
+                    transaction.type.title,
                     style: const TextStyle(
                       fontSize: 14,
                       color: Colors.white70,
@@ -56,7 +54,7 @@ class TransactionTile extends StatelessWidget {
             ],
           ),
           Text(
-            '${transaction.type == TransactionType.expense ? '-' : '+'}${transaction.amount.toStringAsFixed(2)} ₽',
+            '${transaction.type.sign}${transaction.amount.toStringAsFixed(2)} ₽',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -68,18 +66,5 @@ class TransactionTile extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Color _getCategoryColor(TransactionCategory category) {
-    switch (category) {
-      case TransactionCategory.food:
-        return Colors.green;
-      case TransactionCategory.entertainment:
-        return Colors.orange;
-      case TransactionCategory.transportation:
-        return Colors.blue;
-      default:
-        return Colors.grey;
-    }
   }
 }

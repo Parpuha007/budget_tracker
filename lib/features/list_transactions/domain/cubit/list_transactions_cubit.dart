@@ -1,4 +1,6 @@
+import 'package:budget_tracker/di/di.dart';
 import 'package:budget_tracker/features/list_transactions/list_transactions.dart';
+import 'package:budget_tracker/utils/utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -6,17 +8,35 @@ import 'package:injectable/injectable.dart';
 part 'list_transactions_cubit.freezed.dart';
 part 'list_transactions_state.dart';
 
-@Injectable()
+@Singleton()
 class ListTransactionsCubit extends Cubit<ListTransactionsState> {
   ListTransactionsCubit() : super(const _Initial());
 
+  final _localStorage = getIt<LocalStorage>();
+
   Future<void> loadTransactions() async {
-    emit(const Loading());
-    await Future.delayed(const Duration(seconds: 3));
-    emit(Loaded(_groupTransactionsByDate(transactions)));
+    emit(const ListTransactionsLoading());
+    final transactions = await _localStorage.loadTransactions();
+    if (transactions.isEmpty) {
+      emit(const ListTransactionsEmpty());
+      return;
+    }
+    emit(ListTransactionsSuccess(_groupTransactionsByDate(transactions)));
   }
 
-  List<TransactionsGroup> _groupTransactionsByDate(
+  Future<void> deleteTransaction(int id) async {
+    emit(const ListTransactionsLoading());
+    await _localStorage.deleteTransaction(id);
+    loadTransactions();
+  }
+
+  Future<void> deleteTransactions() async {
+    emit(const ListTransactionsLoading());
+    await _localStorage.clearTransactions();
+    loadTransactions();
+  }
+
+  List<TransactionsGroupByDate> _groupTransactionsByDate(
       List<Transaction> transactions) {
     // Группируем транзакции по датам
     final Map<DateTime, List<Transaction>> groupedMap = {};
@@ -37,40 +57,9 @@ class ListTransactionsCubit extends Cubit<ListTransactionsState> {
       }
     }
 
-    // Преобразуем Map в List<TransactionsGroup>
     return groupedMap.entries
-        .map((entry) => TransactionsGroup(date: entry.key, items: entry.value))
+        .map((entry) =>
+            TransactionsGroupByDate(date: entry.key, items: entry.value))
         .toList();
   }
 }
-
-final List<Transaction> transactions = [
-  Transaction(
-    id: 1,
-    type: TransactionType.expense,
-    amount: 349.0,
-    category: TransactionCategory.entertainment,
-    date: DateTime.now().subtract(const Duration(days: 1)),
-  ),
-  Transaction(
-    id: 2,
-    type: TransactionType.expense,
-    amount: 349.0,
-    category: TransactionCategory.entertainment,
-    date: DateTime.now().subtract(const Duration(days: 1)),
-  ),
-  Transaction(
-    id: 3,
-    type: TransactionType.expense,
-    amount: 150.0,
-    category: TransactionCategory.transportation,
-    date: DateTime.now().subtract(const Duration(days: 2)),
-  ),
-  Transaction(
-    id: 4,
-    type: TransactionType.income,
-    amount: 150.0,
-    category: TransactionCategory.food,
-    date: DateTime.now().subtract(const Duration(days: 2)),
-  ),
-];
