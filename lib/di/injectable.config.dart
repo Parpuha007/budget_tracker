@@ -35,10 +35,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => registrationModule.localStorage,
       preResolve: true,
     );
+    gh.singleton<_i1046.StatisticsCubit>(() => _i1046.StatisticsCubit());
+    gh.singleton<_i833.AddTransactionCubit>(() => _i833.AddTransactionCubit());
     gh.singleton<_i823.ListTransactionsCubit>(
         () => _i823.ListTransactionsCubit());
-    gh.singleton<_i833.AddTransactionCubit>(() => _i833.AddTransactionCubit());
-    gh.singleton<_i1046.StatisticsCubit>(() => _i1046.StatisticsCubit());
     return this;
   }
 }

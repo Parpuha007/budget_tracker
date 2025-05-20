@@ -1,12 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:budget_tracker/uikit/uikit.dart';
 import 'package:budget_tracker/utils/app_runner/app_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/single_child_widget.dart';
 
 class MainAppBuilder extends AppBuilder {
   MainAppBuilder(this.appRouter);
-
-  List<SingleChildWidget> get providers => [];
 
   final RootStackRouter appRouter;
 
@@ -14,6 +12,7 @@ class MainAppBuilder extends AppBuilder {
   Widget buildApp() {
     return Builder(
       builder: (context) => MaterialApp.router(
+        theme: appTheme,
         onGenerateTitle: (context) => 'Budget Tracker',
         debugShowCheckedModeBanner: false,
         builder: (context, child) => MediaQuery(

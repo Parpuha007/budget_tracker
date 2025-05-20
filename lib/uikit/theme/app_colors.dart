@@ -9,8 +9,8 @@ abstract class AppColors {
   static const Color breakWater = Color(0xFF173B57);
 
   static const Color tiffany = Color(0xFF04CCD9);
-  static const tiffanyBackground = Color(0xFFE6FAFB);
-
+  static const Color tiffanyBackground = Color(0xFFEEF8F7);
+  static const Color tiffanyText = Color(0xff438883);
   static const Color lightTiffany = Color(0x1A04CCD9);
 
   static const grey = Color(0xFF818E99);
