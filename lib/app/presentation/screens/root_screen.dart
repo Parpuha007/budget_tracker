@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:budget_tracker/router/router.dart';
 import 'package:budget_tracker/uikit/uikit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,9 @@ class _RootScreenState extends State<RootScreen> {
     return Stack(
       children: [
         AutoTabsScaffold(
-          routes: const [],
+          routes: const [
+            HomeRoute(),
+          ],
           bottomNavigationBuilder: (_, tabsRouter) {
             const activeColor = AppColors.tiffany;
             return CupertinoTabBar(

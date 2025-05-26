@@ -1,92 +1,39 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:budget_tracker/router/app_router.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignInWrapper extends StatefulWidget {
+  const SignInWrapper({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignInWrapper> createState() => _SignInWrapperState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  bool _isValidEmail(String email) {
-    return RegExp(
-      r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+',
-    ).hasMatch(email);
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
+class _SignInWrapperState extends State<SignInWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Вход'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextFormField(
-                controller: _emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
-                ),
-                keyboardType: TextInputType.emailAddress,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Пожалуйста, введите email';
-                  }
-                  if (!_isValidEmail(value)) {
-                    return 'Пожалуйста, введите корректный email';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16),
-              TextFormField(
-                controller: _passwordController,
-                decoration: const InputDecoration(
-                  labelText: 'Пароль',
-                  border: OutlineInputBorder(),
-                ),
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Пожалуйста, введите пароль';
-                  }
-                  if (value.length < 6) {
-                    return 'Пароль должен содержать минимум 6 символов';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // TODO: Implement sign in logic
-                  }
-                },
-                child: const Text('Войти'),
-              ),
-            ],
-          ),
-        ),
+      body: SignInScreen(
+        // Указываем, что мы хотим использовать только Email/Password провайдер
+        providers: [
+          EmailAuthProvider(),
+        ],
+        // При успешном входе или регистрации
+        actions: [
+          AuthStateChangeAction<SignedIn>((context, state) {
+            // Тут вы можете перенаправить пользователя на главный экран после входа
+            context.router.push(const HomeRoute());
+          }),
+        ],
+        // Опционально: настройка внешнего вида
+        // headerBuilder: (context, constraints, shrinkOffset) { ... },
+        // subtitleBuilder: (context, action) { ... },
+        // footerBuilder: (context, action) { ... },
       ),
     );
   }
