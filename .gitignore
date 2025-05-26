@@ -43,3 +43,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Freezed, json_serializable, mockito, riverpod_generator и др.
+**/*.g.dart
+**/*.freezed.dart
+**/*.mocks.dart

@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:budget_tracker/router/router.dart';
 import 'package:budget_tracker/uikit/uikit.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -20,11 +22,13 @@ class _StartScreenState extends State<StartScreen>
   @override
   void initState() {
     super.initState();
+    // контроллер для вращения монеток и доната
     _controller = AnimationController(
       duration: const Duration(seconds: 5),
       vsync: this,
-    )..repeat(); // бесконечное вращение
+    )..repeat();
 
+    // анимация для вертикального смещения монеток и доната
     _verticalOffset = Tween<double>(begin: -20, end: 20).animate(
       CurvedAnimation(parent: _controller, curve: Curves.linear),
     );
@@ -32,7 +36,7 @@ class _StartScreenState extends State<StartScreen>
 
   @override
   void dispose() {
-    _controller.dispose(); // обязательно
+    _controller.dispose();
     super.dispose();
   }
 
@@ -43,7 +47,7 @@ class _StartScreenState extends State<StartScreen>
     return Stack(
       children: [
         Container(color: Colors.white),
-        CustomBackground(
+        _CustomBackground(
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: SafeArea(
@@ -106,24 +110,56 @@ class _StartScreenState extends State<StartScreen>
                   ),
                   const SizedBox(height: 26),
                   Padding(
-                    padding: EdgeInsets.zero,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          elevation: 8,
+                    padding: const EdgeInsets.symmetric(horizontal: 28),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          context.router.push(const SignUpRoute());
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40),
                           ),
-                          backgroundColor: Colors.transparent,
-                          shadowColor: Colors.black.withOpacity(0.3),
-                          disabledBackgroundColor: Colors.red),
-                      child: Text(
-                        'Get Started',
-                        style:
-                            textTheme.bodyLarge?.copyWith(color: Colors.white),
+                          backgroundColor: const Color(0xFF4CA293),
+                          shadowColor: Colors.black26,
+                          elevation: 50,
+                        ),
+                        child: Text(
+                          'Get Started',
+                          style: textTheme.bodyLarge?.copyWith(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
-                  )
+                  ),
+                  const SizedBox(height: 17),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Already have an account? ',
+                          style: textTheme.bodySmall?.copyWith(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Log in',
+                          style: textTheme.bodySmall?.copyWith(
+                            color: AppColors.tiffanyText,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              context.router.push(const SignInRoute());
+                            },
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -134,8 +170,8 @@ class _StartScreenState extends State<StartScreen>
   }
 }
 
-class CustomBackground extends StatelessWidget {
-  const CustomBackground({super.key, required this.child});
+class _CustomBackground extends StatelessWidget {
+  const _CustomBackground({required this.child});
 
   final Widget child;
 
@@ -143,13 +179,13 @@ class CustomBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomPaint(
       size: const Size(300, 300),
-      painter: BackgroundPainter(),
+      painter: _BackgroundPainter(),
       child: child,
     );
   }
 }
 
-class BackgroundPainter extends CustomPainter {
+class _BackgroundPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = AppColors.tiffanyBackground;

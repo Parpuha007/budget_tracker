@@ -15,16 +15,22 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    AddTransactionRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const AddTransactionScreen(),
-      );
-    },
     RootRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const RootScreen(),
+      );
+    },
+    SignInRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SignInScreen(),
+      );
+    },
+    SignUpRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SignUpScreen(),
       );
     },
     StartRoute.name: (routeData) {
@@ -33,33 +39,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const StartScreen(),
       );
     },
-    StatisticsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const StatisticsScreen(),
-      );
-    },
-    TransactionListRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const TransactionListScreen(),
-      );
-    },
   };
-}
-
-/// generated route for
-/// [AddTransactionScreen]
-class AddTransactionRoute extends PageRouteInfo<void> {
-  const AddTransactionRoute({List<PageRouteInfo>? children})
-      : super(
-          AddTransactionRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'AddTransactionRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -77,6 +57,34 @@ class RootRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [SignInScreen]
+class SignInRoute extends PageRouteInfo<void> {
+  const SignInRoute({List<PageRouteInfo>? children})
+      : super(
+          SignInRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SignInRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SignUpScreen]
+class SignUpRoute extends PageRouteInfo<void> {
+  const SignUpRoute({List<PageRouteInfo>? children})
+      : super(
+          SignUpRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SignUpRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [StartScreen]
 class StartRoute extends PageRouteInfo<void> {
   const StartRoute({List<PageRouteInfo>? children})
@@ -86,34 +94,6 @@ class StartRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'StartRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [StatisticsScreen]
-class StatisticsRoute extends PageRouteInfo<void> {
-  const StatisticsRoute({List<PageRouteInfo>? children})
-      : super(
-          StatisticsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'StatisticsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [TransactionListScreen]
-class TransactionListRoute extends PageRouteInfo<void> {
-  const TransactionListRoute({List<PageRouteInfo>? children})
-      : super(
-          TransactionListRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'TransactionListRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
