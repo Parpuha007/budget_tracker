@@ -19,15 +19,15 @@ class _SignInWrapperState extends State<SignInWrapper> {
         title: const Text('Вход'),
       ),
       body: SignInScreen(
-        // Указываем, что мы хотим использовать только Email/Password провайдер
+        // Авторизация только по Email и Password
         providers: [
           EmailAuthProvider(),
         ],
-        // При успешном входе или регистрации
+        // При успешном входе
         actions: [
           AuthStateChangeAction<SignedIn>((context, state) {
-            // Тут вы можете перенаправить пользователя на главный экран после входа
-            context.router.push(const HomeRoute());
+            // перенаправление на главный экран
+            context.router.replace(const RootRoute());
           }),
         ],
         // Опционально: настройка внешнего вида

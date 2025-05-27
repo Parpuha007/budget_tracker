@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:budget_tracker/router/router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -13,8 +15,9 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
-            onPressed: () {
-              // TODO: Реализовать логику выхода
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+              context.router.replaceAll([const StartRoute()]);
             },
           ),
         ],
