@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:budget_tracker/generated/assets.gen.dart';
 import 'package:budget_tracker/router/router.dart';
 import 'package:budget_tracker/uikit/uikit.dart';
 import 'package:flutter/gestures.dart';
@@ -57,10 +58,7 @@ class _StartScreenState extends State<StartScreen>
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 120),
-                        child: Image.asset(
-                          'assets/start_main.png',
-                          fit: BoxFit.contain,
-                        ),
+                        child: Assets.startMain.image(fit: BoxFit.contain),
                       ),
                       AnimatedBuilder(
                         animation: _controller,
@@ -72,10 +70,7 @@ class _StartScreenState extends State<StartScreen>
                                     sin(_controller.value * pi + pi),
                             child: RotationTransition(
                               turns: _controller,
-                              child: Image.asset(
-                                'assets/start_coin.png',
-                                width: 80,
-                              ),
+                              child: Assets.startCoin.image(width: 80),
                             ),
                           );
                         },
@@ -90,10 +85,7 @@ class _StartScreenState extends State<StartScreen>
                                     sin(_controller.value * pi),
                             child: RotationTransition(
                               turns: _controller,
-                              child: Image.asset(
-                                'assets/start_donut.png',
-                                width: 80,
-                              ),
+                              child: Assets.startDonut.image(width: 80),
                             ),
                           );
                         },
