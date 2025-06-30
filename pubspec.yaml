@@ -111,3 +111,5 @@ flutter_gen:
 flutter_native_splash:
   color: "#509993"
   image: assets/splash.png
+
+  # flutter pub run build_runner build --delete-conflicting-outputs
