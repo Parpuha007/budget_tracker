@@ -19,8 +19,7 @@ class _RootScreenState extends State<RootScreen> {
       children: [
         AutoTabsScaffold(
           routes: const [
-            TransactionListRoute(),
-            StatisticsRoute(),
+            HomeRoute(),
           ],
           bottomNavigationBuilder: (_, tabsRouter) {
             const activeColor = AppColors.tiffany;
